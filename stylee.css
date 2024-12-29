@@ -1,0 +1,28 @@
+.music{
+    background-color: darkorange;
+}
+pre{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-style: italic;
+    font-display: block;
+    border-style: ridge;
+    border-color: antiquewhite;
+    border-radius: 55px;
+    border-width: 5px;
+}
+.eminem{
+    color: green;
+}
+h5{
+    border-style: groove;
+    border-width: 7px;
+    border-color:deeppink;
+    border-radius: 10px;   
+}
+body{
+    background-color:rgb(141, 105, 105)
+}
+h1{
+    text-shadow: 2px 2px 5px red;
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATRİX</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(1, 9, 4);
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        
+        .neon-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(237, 245, 237);
+            font-size: 50px;
+            text-shadow: 
+                0 0 5px #6200ff,
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 40px #0015ff,
+                0 0 80px #ff0000;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 5px #002fff,
+                    0 0 10px #da0000,
+                    0 0 20px #ff0000,
+                    0 0 40px #ff0000,
+                    0 0 80px #2600ff;
+            }
+            to {
+                text-shadow: 
+                    0 0 20px #ff0000,
+                    0 0 40px #0d00ff,
+                    0 0 60px #ff0000,
+                    0 0 80px #2b00ff,
+                    0 0 100px #ff0000;
+            }
+        }
+
+        
+        .scrolling-text {
+            position: absolute;
+            width: 300%;
+            font-size: 45px;
+            color: lime;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .scrolling-text div {
+            display: inline-block;
+            padding-left: 100%; 
+            animation: scroll 10.5s linear infinite; 
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0); 
+            }
+            to {
+                transform: translateX(-100%); 
+            }
+        }
+
+        .upper-text {
+            top: 10%; 
+        }
+
+        .lower-text {
+            bottom: 10%; 
+        }
+
+       
+        .pill {
+            position: absolute;
+            bottom: 20px;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            z-index: 2;
+        }
+
+        .red-pill {
+            background-color: red;
+            left: 20px;
+        }
+
+        .blue-pill {
+            background-color: blue;
+            right: 20px;
+        }
+
+    
+        .robot {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            width: 80px;
+            height: 80px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .robot-head {
+            width: 60px;
+            height: 40px;
+            background-color: rgb(208, 203, 203);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+
+        .robot-eyes {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(4, 8, 4);
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .robot-eyes.left {
+            left: 10px;
+            top: 10px;
+        }
+
+        .robot-eyes.right {
+            right: 10px;
+            top: 10px;
+        }
+
+        .robot-body {
+            width: 50px;
+            height: 60px;
+            background-color: rgb(204, 201, 201);
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .robot-arms {
+            width: 10px;
+            height: 40px;
+            background-color: rgb(213, 218, 220);
+            position: absolute;
+        }
+
+        .robot-arms.left {
+            left: -10px;
+            top: 10px;
+        }
+
+        .robot-arms.right {
+            right: -10px;
+            top: 10px;
+        }
+
+        .robot-legs {
+            width: 20px;
+            height: 40px;
+            background-color: rgb(139, 139, 137);
+            position: absolute;
+            bottom: 0;
+        }
+
+        .robot-legs.left {
+            left: 5px;
+        }
+
+        .robot-legs.right {
+            right: 5px;
+        }
+
+        .chatbot {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: rgba(9, 9, 9, 0.601);
+            border: 2px solid #08ef08;
+            border-radius: 10px;
+            display: none; 
+            z-index: 3;
+            padding: 10px;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .chatbot-header {
+            color: #00ff00;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            overflow-y: auto;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="neon-text">WELCOME THE MATRİX</div>
+
+    <div class="scrolling-text upper-text">
+        <div>Programming... Hacking... Encrypting... Data Mining... Cyber Security... Analyzing...</div>
+        <div>Programming... Hacking... Encrypting... Data Mining... Cyber Security... Analyzing...</div>
+    </div>
+
+    <div class="scrolling-text lower-text">
+        <div>Programming... Hacking... Encrypting... Data Mining... Cyber Security... Analyzing...</div>
+        <div>Programming... Hacking... Encrypting... Data Mining... Cyber Security... Analyzing...</div>
+    </div>
+
+    <div class="robot">
+        <div class="robot-head">
+            <div class="robot-eyes left"></div>
+            <div class="robot-eyes right"></div>
+        </div>
+        <div class="robot-body">
+            <div class="robot-arms left"></div>
+            <div class="robot-arms right"></div>
+            <div class="robot-legs left"></div>
+            <div class="robot-legs right"></div>
+        </div>
+    </div>
+
+    <div class="pill red-pill"></div>
+    <div class="pill blue-pill"></div>
+
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">Chatbot</div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Sorunuzu yazın..." />
+    </div>
+
+    <script>
+        document.querySelector('.red-pill').addEventListener('click', function() {
+            alert('OKYANUSUN DERİNLİKLERİNE HOŞGELDİNİZ '); 
+            document.getElementById('chatbot').style.display = 'block'; 
+        });
+
+        document.querySelector('.blue-pill').addEventListener('click', function() {
+            alert('Mavi hapı seçtiniz!');
+        });
+
+        document.getElementById('chatbotInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const userInput = event.target.value;
+                const chatbotMessages = document.getElementById('chatbotMessages');
+
+                chatbotMessages.innerHTML += `<div>User: ${userInput}</div>`;
+                event.target.value = ''; 
+
+                let botResponse = "Bu konuda bilgi yok.";
+                if (userInput.toLowerCase().includes("merhaba")) {
+                    botResponse = "Merhaba! Size nasıl yardımcı olabilirim?";
+                } else if (userInput.toLowerCase().includes("ne yapabilirsin")) {
+                    botResponse = "Ben bir chatbotum. Sorularınızı yanıtlayabilirim!";
+                }
+
+                chatbotMessages.innerHTML += `<div>Chatbot: ${botResponse}</div>`;
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Mesajların en sonuna kaydır
+            }
+        });
+    </script>
+
+</body>
+</html>
